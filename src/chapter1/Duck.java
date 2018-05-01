@@ -5,6 +5,10 @@ public abstract class Duck {
         System.out.println("Looks like Duck");
     }
 
+    public void fly() {
+        System.out.println("Fly like a duck");
+    }
+
     public void quack() {
         System.out.println("Quack quack");
     }
