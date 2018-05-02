@@ -1,6 +1,6 @@
 package chapter1;
 
-public interface Flyable {
+public interface FlyBehaviour {
 
     public void fly();
 }

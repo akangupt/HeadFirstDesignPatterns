@@ -1,6 +1,6 @@
 package chapter1;
 
-public class RedHeadDuck extends Duck implements Flyable, Quackable{
+public class RedHeadDuck extends Duck{
 
     @Override
     public void display() {

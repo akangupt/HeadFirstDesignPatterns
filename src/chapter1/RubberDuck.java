@@ -10,8 +10,5 @@ public class RubberDuck extends Duck{
         System.out.println("Looks like RubberDuck");
     }
 
-    private void squeak() {
-        System.out.println("Squeak squeak");
-    }
 
 }
