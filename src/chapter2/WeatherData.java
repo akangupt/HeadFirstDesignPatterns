@@ -1,15 +1,12 @@
 package chapter2;
 
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.Observable;
 
-public class WeatherData implements Subject{
+public class WeatherData extends Observable {
 
-    private ArrayList<Observer> observers;
     private float temperature, humidity, pressure;
 
-    public WeatherData(ArrayList<Observer> observers) {
-        observers = new ArrayList<Observer>();
+    public WeatherData() {
     }
 
     public float getTemperature() {
@@ -24,29 +21,30 @@ public class WeatherData implements Subject{
         return pressure;
     }
 
-    @Override
-    public void registerObserver(Observer o) {
-        observers.add(o);
-    }
-
-    @Override
-    public void removeObserver(Observer o) {
-        // First check if Observer o is registered
-        int index = observers.indexOf(o);
-        if(index >= 0) observers.remove(o);
-    }
-
-    @Override
-    public void notifyObserver() {
-        for(Iterator i = observers.iterator(); i.hasNext();) {
-            Observer o = (Observer) (i.next());
-            o.update(temperature, humidity, pressure);
-        }
-    }
-
     // Notify observers when there is change in measurements
     public void measurementsChanged() {
-        notifyObserver();
+
+        /* Reference: Head First design patterns
+         [important] if setChanged() is not called then it will not notify observers
+         Why is this necessary? The setChanged() method is meant to give you more flexibility in how
+         you update observers by allowing you to optimize the notifications. For example, in our weather
+         station, imagine if our measurements were so sensitive that the temperature readings were
+         constantly fluctuating by a few tenths of a degree. That might cause the WeatherData object
+         to send out notifications constantly. Instead, we might want to send out notifications only if the
+         temperature changes more than half a degree and we could call setChanged() only after that
+         happened. You might not use this functionality very often, but it’s there if you need it. In either case, you
+         need to call setChanged() for notifications to work. If this functionality is something that is useful
+         to you, you may also want to use the clearChanged() method, which sets the changed state back to
+         false, and the hasChanged() method, which tells you the current state of the changed flag.
+        */
+        setChanged();
+
+
+        // If you want to “push” data to the observers you can pass the data as a data object
+        // to the notifyObserver(arg) method. If not, then the Observer has to “pull” the data
+        // it wants from the Observable object passed to ().
+        // We are using pull method here! Observer will have to pull for the updates.
+        notifyObservers();
     }
 
     public void setMeasurements(float temperature, float humidity, float pressure) {
