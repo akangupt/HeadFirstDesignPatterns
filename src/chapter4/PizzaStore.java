@@ -1,15 +1,9 @@
 package chapter4;
 
-public class PizzaStore {
-    private Pizza pizza;
-    private SimplePizzaFactory factory;
-
-    public PizzaStore(SimplePizzaFactory factory) {
-        this.factory = factory;
-    }
+public abstract class PizzaStore {
 
     public Pizza orderPizza(String type) {
-        pizza = factory.create(type);
+        Pizza pizza = create(type);
         pizza.prepare();
         pizza.bake();
         pizza.cut();
@@ -17,5 +11,7 @@ public class PizzaStore {
 
         return pizza;
     }
+
+    public abstract Pizza create(String type);
 
 }
