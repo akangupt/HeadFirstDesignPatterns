@@ -1,4 +1,8 @@
-package chapter4;
+package chapter4.PizzaStore;
+
+import chapter4.Pizza.ClamPizza;
+import chapter4.Pizza.PepperoniPizza;
+import chapter4.Pizza.Pizza;
 
 public class ChicagoPizzaStore extends PizzaStore {
 

@@ -1,4 +1,4 @@
-package chapter4;
+package chapter4.Pizza;
 
 public class ClamPizza extends Pizza {
     public ClamPizza() {

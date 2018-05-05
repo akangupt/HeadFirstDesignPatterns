@@ -1,4 +1,6 @@
-package chapter4;
+package chapter4.PizzaStore;
+
+import chapter4.Pizza.Pizza;
 
 public abstract class PizzaStore {
 

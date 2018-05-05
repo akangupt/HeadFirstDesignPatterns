@@ -1,4 +1,8 @@
-package chapter4;
+package chapter4.PizzaStore;
+
+import chapter4.Pizza.CheesePizza;
+import chapter4.Pizza.Pizza;
+import chapter4.Pizza.VeggiePizza;
 
 /*
     Reference: Head first design pattern
