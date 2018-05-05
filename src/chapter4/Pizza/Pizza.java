@@ -8,15 +8,7 @@ public abstract class Pizza {
     public String name, dough, sauce;
     public List<String> toppings = new ArrayList<String>();
 
-    public void prepare() {
-        System.out.println("Preparing " + name);
-        System.out.println("Tossing dough...");
-        System.out.println("Adding sauce...");
-        System.out.println("Adding toppings: ");
-        for (int i = 0; i < toppings.size(); i++) {
-            System.out.println(" " + toppings.get(i));
-        }
-    }
+    public abstract void prepare();
 
     public void bake() {
         System.out.println("Baking");

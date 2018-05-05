@@ -3,6 +3,7 @@ package chapter4.PizzaStore;
 import chapter4.Pizza.CheesePizza;
 import chapter4.Pizza.Pizza;
 import chapter4.Pizza.VeggiePizza;
+import chapter4.PizzaIngredient.NYPizzaIngredientFactory;
 
 /*
     Reference: Head first design pattern
@@ -22,9 +23,9 @@ public class NYPizzaStore extends PizzaStore {
     @Override
     public Pizza create(String type) {
         if(type.equals("cheese")) {
-            return new CheesePizza();
+            return new CheesePizza(new NYPizzaIngredientFactory());
         } else if(type.equals("veggie")) {
-            return new VeggiePizza();
+            return new VeggiePizza(new NYPizzaIngredientFactory());
         }
         return null;
     }

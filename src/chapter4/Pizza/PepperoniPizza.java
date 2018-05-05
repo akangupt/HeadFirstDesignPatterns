@@ -1,10 +1,20 @@
 package chapter4.Pizza;
 
+import chapter4.PizzaIngredient.ChicagoPizzaIngredientFactory;
+
 public class PepperoniPizza extends Pizza {
-    public PepperoniPizza() {
-        name = "Chicago Style Sauce and Pepperoni Pizza";
-        dough = "Thick Crust Dough";
-        sauce = "Plum Tomato Sauce";
-        toppings.add("Shredded Mozzarella Cheese");
+
+    private ChicagoPizzaIngredientFactory factory;
+
+    public PepperoniPizza(ChicagoPizzaIngredientFactory factory) {
+        this.factory = factory;
+    }
+
+    @Override
+    public void prepare() {
+        System.out.println("Chicago Style Sauce and Pepperoni Pizza");
+        System.out.println(factory.createCheese());
+        System.out.println(factory.createDough());
+        System.out.println(factory.createVeggies());
     }
 }
