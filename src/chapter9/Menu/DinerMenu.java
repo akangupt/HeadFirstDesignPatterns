@@ -1,7 +1,10 @@
 package chapter9.Menu;
 
+import chapter9.Iterator.DinerMenuIterator;
+import chapter9.Iterator.Iterator;
+
 public class DinerMenu {
-    private static final int MAX_ITEMS = 6;
+    public static final int MAX_ITEMS = 6;
     private int size;
     MenuItem[] menuItems;
 
@@ -26,7 +29,8 @@ public class DinerMenu {
         }
     }
 
-    public MenuItem[] getMenuItems() {
-        return menuItems;
+    public Iterator createIterator() {
+        return new DinerMenuIterator(menuItems);
     }
+
 }

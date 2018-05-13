@@ -1,5 +1,7 @@
 package chapter9.Menu;
 
+import chapter9.Iterator.Iterator;
+import chapter9.Iterator.PancakeMenuIterator;
 import java.util.ArrayList;
 
 public class PancakeHouseMenu {
@@ -29,7 +31,7 @@ public class PancakeHouseMenu {
         menuItems.add(new MenuItem(name, description, vegetarian, price));
     }
 
-    public ArrayList getMenuItems() {
-        return menuItems;
+    public Iterator createIterator() {
+        return new PancakeMenuIterator(menuItems);
     }
 }
