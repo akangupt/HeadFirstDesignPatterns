@@ -3,10 +3,10 @@ package chapter6.Receiver;
 public class CeilingFan {
     private String location;
     private int speed;
-    private int HIGH = 3;
-    private int MEDIUM = 2;
-    private int LOW = 1;
-    private int OFF = 0;
+    public static int HIGH = 3;
+    public static int MEDIUM = 2;
+    public static int LOW = 1;
+    public static int OFF = 0;
 
     public CeilingFan (String location) {
         this.location = location;
