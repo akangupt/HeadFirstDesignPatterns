@@ -3,7 +3,7 @@ import chapter9.Iterator.DinerMenuIterator;
 
 import java.util.Iterator;
 
-public class DinerMenu {
+public class DinerMenu implements Menu{
     public static final int MAX_ITEMS = 6;
     private int size;
     MenuItem[] menuItems;
