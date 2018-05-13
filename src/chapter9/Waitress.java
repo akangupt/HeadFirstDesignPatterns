@@ -14,11 +14,11 @@ public class Waitress {
         MenuItem[] lunchItems = dinerMenu.getMenuItems();
 
         for(int i = 0; i < breakfastItems.size(); i++) {
-            breakfastItems.get(i).toString();
+            System.out.println(breakfastItems.get(i).toString());
         }
 
         for(int i = 0; i < lunchItems.length; i++) {
-            lunchItems[i].toString();
+            System.out.println(lunchItems[i].toString());
         }
 
     }
