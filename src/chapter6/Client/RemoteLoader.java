@@ -2,8 +2,10 @@ package chapter6.Client;
 
 import chapter6.Command.CeilingFanHighCommand;
 import chapter6.Command.CeilingFanOffCommand;
+import chapter6.Command.Command;
 import chapter6.Command.LightOffCommand;
 import chapter6.Command.LightOnCommand;
+import chapter6.Command.MacroCommand;
 import chapter6.Command.StereoOffCommand;
 import chapter6.Command.StereoOnWithCDCommand;
 import chapter6.Invoker.RemoteControl;
@@ -49,5 +51,16 @@ public class RemoteLoader {
         remote.offButtonWasPressed(3);
 
         remote.undoButtonWasPressed();
+
+        System.out.println();
+        System.out.println("Party mode:");
+        // Macro party command execution
+        Command[] partyOnCommands = {livingRoomLightOn, livingRoomCeilingFanOn, stereoOnWithCD};
+        Command[] partyOffCommands = {livingRoomLightOff, livingRoomCeilingFanOff, stereoOff};
+        MacroCommand partyOn = new MacroCommand(partyOnCommands);
+        MacroCommand partyoff = new MacroCommand(partyOffCommands);
+        remote.setCommand(4, partyOn, partyoff);
+        remote.onButtonWasPressed(4);
+        remote.offButtonWasPressed(4);
     }
 }
