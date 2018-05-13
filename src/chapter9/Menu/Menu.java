@@ -1,11 +1,17 @@
 package chapter9.Menu;
 
+import chapter9.Iterator.CompositeIterator;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Menu extends MenuComponent{
     private ArrayList<MenuComponent> menus;
     private String name, description;
+
+    // [important] We need to keep only one iterator for one menu
+    private Iterator iterator = null;
+
 
     public Menu(String name, String description) {
         menus = new ArrayList<MenuComponent>();
@@ -45,5 +51,18 @@ public class Menu extends MenuComponent{
             MenuComponent menuComponent = (MenuComponent) iterator.next();
             menuComponent.print();
         }
+    }
+
+    @Override
+    public Iterator createIterator() {
+        if(iterator == null) {
+            synchronized(Menu.class) {
+                if(iterator == null) {
+                    iterator = new CompositeIterator(menus.iterator());
+                }
+            }
+        }
+
+        return iterator;
     }
 }
