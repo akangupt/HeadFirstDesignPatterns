@@ -7,13 +7,26 @@ import java.util.Iterator;
 
 public class Waitress {
 
-    private MenuComponent allmenus;
+    private MenuComponent allMenus;
 
     public Waitress(MenuComponent allmenus) {
-        this.allmenus = allmenus;
+        this.allMenus = allmenus;
     }
 
     public void printMenu() {
-        allmenus.print();
+        allMenus.print();
+    }
+
+    public void printVegetarianMenu() {
+        Iterator iterator = allMenus.createIterator();
+        while (iterator.hasNext()) {
+            MenuComponent menuComponent =
+                    (MenuComponent)iterator.next();
+            try {
+                if (menuComponent.isVegetarian()) {
+                    menuComponent.print();
+                }
+            } catch (UnsupportedOperationException e) {}
+        }
     }
 }
