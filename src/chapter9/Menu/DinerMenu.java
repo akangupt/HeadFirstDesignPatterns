@@ -1,7 +1,7 @@
 package chapter9.Menu;
-
 import chapter9.Iterator.DinerMenuIterator;
-import chapter9.Iterator.Iterator;
+
+import java.util.Iterator;
 
 public class DinerMenu {
     public static final int MAX_ITEMS = 6;

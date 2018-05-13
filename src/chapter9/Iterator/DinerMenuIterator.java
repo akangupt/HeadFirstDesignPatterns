@@ -1,6 +1,7 @@
 package chapter9.Iterator;
 
 import chapter9.Menu.MenuItem;
+import java.util.Iterator;
 
 public class DinerMenuIterator implements Iterator {
     private MenuItem menuItems[];
@@ -23,5 +24,16 @@ public class DinerMenuIterator implements Iterator {
 
         position++;
         return menuItems[position];
+    }
+
+    @Override
+    public void remove() {
+        if (position <= 0) return;
+        if (menuItems[position-1] != null) {
+            for (int i = position-1; i < (menuItems.length-1); i++) {
+                menuItems[i] = menuItems[i+1];
+            }
+            menuItems[menuItems.length-1] = null;
+        }
     }
 }
