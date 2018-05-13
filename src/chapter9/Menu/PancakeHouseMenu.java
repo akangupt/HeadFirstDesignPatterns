@@ -1,4 +1,4 @@
-package chapter9;
+package chapter9.Menu;
 
 import java.util.ArrayList;
 

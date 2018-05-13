@@ -1,4 +1,4 @@
-package chapter9;
+package chapter9.Menu;
 
 public class DinerMenu {
     private static final int MAX_ITEMS = 6;

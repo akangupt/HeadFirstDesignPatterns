@@ -1,4 +1,4 @@
-package chapter9;
+package chapter9.Menu;
 
 public class MenuItem {
     private String name, description;

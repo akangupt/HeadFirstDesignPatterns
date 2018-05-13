@@ -1,5 +1,9 @@
 package chapter9;
 
+import chapter9.Menu.DinerMenu;
+import chapter9.Menu.MenuItem;
+import chapter9.Menu.PancakeHouseMenu;
+
 import java.util.ArrayList;
 
 public class Waitress {
