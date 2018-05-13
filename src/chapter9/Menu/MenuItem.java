@@ -1,6 +1,6 @@
 package chapter9.Menu;
 
-public class MenuItem {
+public class MenuItem extends MenuComponent{
     private String name, description;
     private boolean vegetarian;
     private double price;
@@ -28,13 +28,12 @@ public class MenuItem {
         return price;
     }
 
-    @Override
-    public String toString() {
-        return "MenuItem{" +
+    public void print() {
+        System.out.println("MenuItem{" +
                 "name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", vegetarian=" + vegetarian +
                 ", price=" + price +
-                '}';
+                '}');
     }
 }

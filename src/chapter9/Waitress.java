@@ -1,27 +1,19 @@
 package chapter9;
 
-import chapter9.Menu.DinerMenu;
+import chapter9.Menu.MenuComponent;
 import chapter9.Menu.MenuItem;
-import chapter9.Menu.PancakeHouseMenu;
 
 import java.util.Iterator;
 
 public class Waitress {
-    private PancakeHouseMenu pancakeHouseMenu;
-    private DinerMenu dinerMenu;
 
-    public void printMenu() {
-        pancakeHouseMenu = new PancakeHouseMenu();
-        printMenu(pancakeHouseMenu.createIterator());
+    private MenuComponent allmenus;
 
-        dinerMenu = new DinerMenu();
-        printMenu(dinerMenu.createIterator());
+    public Waitress(MenuComponent allmenus) {
+        this.allmenus = allmenus;
     }
 
-    public void printMenu(Iterator iterator) {
-        while (iterator.hasNext()) {
-            MenuItem menuItem = (MenuItem) iterator.next();
-            System.out.println(menuItem.toString());
-        }
+    public void printMenu() {
+        allmenus.print();
     }
 }
