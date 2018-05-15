@@ -31,8 +31,4 @@ public class NoQuarterState implements State {
         System.out.println("You need to pay first.");
     }
 
-    @Override
-    public void refill(int count) {
-        System.out.println("There are already gumballs in the machine.");
-    }
 }

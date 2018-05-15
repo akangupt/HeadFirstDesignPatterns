@@ -39,20 +39,27 @@ public class WinnerState implements State {
 
     @Override
     public void dispense() {
-        System.out.println("You are winner!  Gumball on the way!");
+        /*
+        Not a good implementation
+        need to think about more than 2 gumball dispense case
+         */
+        System.out.println("YOU’RE A WINNER! You get two gumballs for your quarter");
+        gumballMachine.release();
         int count = gumballMachine.getCount();
-        count -= 2;
-        gumballMachine.setCount(count);
-        if(count <= 0) {
+        if(count == 0) {
+            System.out.println("Oops, out of gumballs!");
             gumballMachine.setState(gumballMachine.getSoldOutState());
-            gumballMachine.getSoldOutState().refill(10);
         }
-        else gumballMachine.setState(gumballMachine.getNoQuarterState());
+        else {
+            gumballMachine.release();
+            if (gumballMachine.getCount() > 0) {
+                gumballMachine.setState(gumballMachine.getNoQuarterState());
+            } else {
+                System.out.println("Oops, out of gumballs!");
+                gumballMachine.setState(gumballMachine.getSoldOutState());
+            }
+        }
     }
 
-    @Override
-    public void refill(int count) {
-        System.out.println("There are already gumballs in the machine.");
-    }
 }
 

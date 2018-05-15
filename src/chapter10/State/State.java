@@ -5,5 +5,5 @@ public interface State {
     void ejectQuarter();
     void turnCrank();
     void dispense();
-    void refill(int count);
+    default void refill() {};
 }

@@ -35,10 +35,17 @@ public class GumballMachine {
 
     public void turnCrank() {
         state.turnCrank();
+        state.dispense();
     }
 
-    public void refill(int count) {
-        state.refill(10);
+    public void release() {
+        System.out.println("A gumball comes rolling out the slot...");
+        if(count > 0) count -= 1;
+    }
+
+    public void refill(int refillCount) {
+        count += refillCount;
+        state.refill();
     }
 
 

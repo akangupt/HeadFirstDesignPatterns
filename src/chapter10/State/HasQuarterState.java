@@ -27,25 +27,15 @@ public class HasQuarterState implements State {
     @Override
     public void turnCrank() {
         System.out.println("You turned....");
+        int n = random.nextInt(10);
 
-        int n = random.nextInt(10)+ 1;
-
-        if(n == 7) {
-            gumballMachine.setState(gumballMachine.getWinnerState());
-            gumballMachine.getWinnerState().dispense();
-            return;
-        }
-        gumballMachine.setState(gumballMachine.getSoldState());
-        gumballMachine.getSoldState().dispense();
+        // We want machine to enter winner state only if there are more than 1 gumballs to return
+        if((n == 0) && (gumballMachine.getCount() >1)) gumballMachine.setState(gumballMachine.getWinnerState());
+        else gumballMachine.setState(gumballMachine.getSoldState());
     }
 
     @Override
     public void dispense() {
         System.out.println("No gumball dispensed.");
-    }
-
-    @Override
-    public void refill(int count) {
-        System.out.println("There are already gumballs in the machine.");
     }
 }
