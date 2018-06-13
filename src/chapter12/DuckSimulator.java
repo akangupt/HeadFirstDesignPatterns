@@ -4,6 +4,8 @@ import chapter12.Ducks.DuckCall;
 import chapter12.Ducks.MallardDuck;
 import chapter12.Ducks.RedheadDuck;
 import chapter12.Ducks.RubberDuck;
+import chapter12.Goose.Goose;
+import chapter12.Goose.GooseAdapter;
 import chapter12.Interfaces.Quackable;
 
 public class DuckSimulator {
@@ -18,11 +20,13 @@ public class DuckSimulator {
         Quackable redheadDuck = new RedheadDuck();
         Quackable duckCall = new DuckCall();
         Quackable rubberDuck = new RubberDuck();
+        Quackable goose = new GooseAdapter(new Goose());
         System.out.println("\nDuck Simulator");
         simulate(mallardDuck);
         simulate(redheadDuck);
         simulate(duckCall);
         simulate(rubberDuck);
+        simulate(goose);
     }
 
     private void simulate(Quackable duck) {
