@@ -4,6 +4,8 @@ import chapter12.Ducks.DuckCall;
 import chapter12.Ducks.MallardDuck;
 import chapter12.Ducks.RedheadDuck;
 import chapter12.Ducks.RubberDuck;
+import chapter12.Factory.AbstractDuckFactory;
+import chapter12.Factory.CountingDuckFactory;
 import chapter12.Goose.Goose;
 import chapter12.Goose.GooseAdapter;
 import chapter12.Interfaces.Quackable;
@@ -12,14 +14,15 @@ public class DuckSimulator {
 
     public static void main(String args[]) {
         DuckSimulator duckSimulator = new DuckSimulator();
-        duckSimulator.simulate();
+        AbstractDuckFactory duckFactory = new CountingDuckFactory();
+        duckSimulator.simulate(duckFactory);
     }
 
-    private void simulate() {
-        Quackable mallardDuck = new QuackCounter(new MallardDuck());
-        Quackable redheadDuck = new QuackCounter(new RedheadDuck());
-        Quackable duckCall = new QuackCounter(new DuckCall());
-        Quackable rubberDuck = new QuackCounter(new RubberDuck());
+    private void simulate(AbstractDuckFactory duckFactory) {
+        Quackable mallardDuck = duckFactory.createMallardDuck();
+        Quackable redheadDuck = duckFactory.createRedheadDuck();
+        Quackable duckCall = duckFactory.createDuckCall();
+        Quackable rubberDuck = duckFactory.createRubberDuck();
         Quackable goose = new GooseAdapter(new Goose());
         System.out.println("\nDuck Simulator");
         simulate(mallardDuck);
