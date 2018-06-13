@@ -1,5 +1,11 @@
 package chapter12;
 
+import chapter12.Ducks.DuckCall;
+import chapter12.Ducks.MallardDuck;
+import chapter12.Ducks.RedheadDuck;
+import chapter12.Ducks.RubberDuck;
+import chapter12.Interfaces.Quackable;
+
 public class DuckSimulator {
 
     public static void main(String args[]) {
