@@ -44,6 +44,14 @@ public class MatchMakingTestDrive {
     }
 
     // Java's Dynamic proxy
+    /*
+     Reference: Head First Design Patterns
+     So what exactly is the "dynamic" aspect of dynamic proxies? Is it that I’m instantiating
+     the proxy and setting it to a handler at runtime?
+     No, the proxy is dynamic because its class is created at runtime.
+     Think about it: before your code runs there is no proxy class; it is created on
+     demand from the set of interfaces you pass it
+     */
     private PersonBean getOwnerProxy(PersonBean person) {
         return (PersonBean) Proxy.newProxyInstance(person.getClass().getClassLoader(),
                 person.getClass().getInterfaces(),
