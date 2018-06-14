@@ -1,14 +1,11 @@
 package chapter12;
 
-import chapter12.Ducks.DuckCall;
-import chapter12.Ducks.MallardDuck;
-import chapter12.Ducks.RedheadDuck;
-import chapter12.Ducks.RubberDuck;
 import chapter12.Factory.AbstractDuckFactory;
 import chapter12.Factory.CountingDuckFactory;
 import chapter12.Goose.Goose;
 import chapter12.Goose.GooseAdapter;
 import chapter12.Interfaces.Quackable;
+import chapter12.Observer.Quackologist;
 
 public class DuckSimulator {
 
@@ -42,6 +39,9 @@ public class DuckSimulator {
         flockOfMallards.add(mallardDuckTwo);
         flockOfMallards.add(mallardDuckThree);
         flockOfMallards.add(mallardDuckFour);
+
+        Quackologist quackologist = new Quackologist();
+        flockOfDucks.registerObserver(quackologist);
 
         simulate(flockOfDucks);
         simulate(flockOfMallards);
